@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BinaryLiteral {
     /**
-     * bsil is byte,short,int and long
+     * bsil is byte,short,int and long.
      * In Java SE 7, the integral types (byte, short, int, and long) can also be expressed using the binary number system.
      * To specify a binary literal, add the prefix 0b or 0B to the number. The following examples show binary literals:
      */
@@ -13,6 +13,7 @@ public class BinaryLiteral {
         byte aByte = (byte) 0b00100001;
         log.info("An 8-bit 'byte' value: '0b00100001' ---> {}", aByte);
 
+        // The highest bit can't be 1, if it is 1, you should use cast
         short aShort = (short) 0b1010000101000101;
         log.info("A 16-bit 'short' value: '0b1010000101000101' ---> {}", aShort);
 

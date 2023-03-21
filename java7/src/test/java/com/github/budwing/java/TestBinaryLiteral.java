@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class TestBinaryLiteral {
     @Test
-    public void testBasic() {
+    public void testBsil() {
         BinaryLiteral.bsil();
     }
 

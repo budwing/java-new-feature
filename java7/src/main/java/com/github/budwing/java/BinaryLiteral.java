@@ -29,34 +29,33 @@ public class BinaryLiteral {
     }
 
     public static final short[] HAPPY_FACE = {
-            (short)0b0000011111100000,
-            (short)0b0000100000010000,
-            (short)0b0001000000001000,
-            (short)0b0010000000000100,
-            (short)0b0100000000000010,
-            (short)0b1000011001100001,
-            (short)0b1000011001100001,
-            (short)0b1000000000000001,
-            (short)0b1000000000000001,
-            (short)0b1001000000001001,
-            (short)0b1000100000010001,
-            (short)0b0100011111100010,
-            (short)0b0010000000000100,
-            (short)0b0001000000001000,
-            (short)0b0000100000010000,
-            (short)0b0000011111100000
+            (short) 0b0000011111100000,
+            (short) 0b0000100000010000,
+            (short) 0b0001000000001000,
+            (short) 0b0010000000000100,
+            (short) 0b0100000000000010,
+            (short) 0b1000011001100001,
+            (short) 0b1000011001100001,
+            (short) 0b1000000000000001,
+            (short) 0b1000000000000001,
+            (short) 0b1001000000001001,
+            (short) 0b1000100000010001,
+            (short) 0b0100011111100010,
+            (short) 0b0010000000000100,
+            (short) 0b0001000000001000,
+            (short) 0b0000100000010000,
+            (short) 0b0000011111100000
     };
+
     public static void happyFace() {
-        for (short num : HAPPY_FACE) {
-            log.info("{}",num);
-        }
+        log.info("{}", HAPPY_FACE);
         for (short num : HAPPY_FACE) {
             print(num);
         }
     }
 
     private static void print(int num) {
-        for (int i=15;i>=0;i--){
+        for (int i = 15; i >= 0; i--) {
             if ((num >>> i & 1) == 1) {
                 System.out.print(" * ");
             } else {

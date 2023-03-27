@@ -328,3 +328,39 @@ In releases prior to Java SE 7, you cannot throw an exception that is a supertyp
 A compiler from a release prior to Java SE 7 generates the error, "unreported exception Exception; must be caught or declared to be thrown" at the statement throw e. 
 The compiler checks if the type of the exception thrown is assignable to any of the types declared in the throws clause of the rethrowException method declaration. 
 However, the type of the catch parameter e is Exception, which is a supertype, not a subtype, of FirstException andSecondException.
+
+### Improved Compiler Warnings and Errors for Non-Reifiable
+
+#### Heap Pollution
+Most parameterized types, such as ArrayList<Number> and List<String>, are non-reifiable types. 
+A non-reifiable type is a type that is not completely available at runtime. 
+At compile time, non-reifiable types undergo a process called **_type erasure_** during which the compiler removes information related to type parameters and type arguments. 
+**_This ensures binary compatibility with Java libraries and applications that were created before generics.**_ 
+Because type erasure removes information from parameterized types at compile-time, these types are non-reifiable.
+
+Heap pollution occurs when a variable of a parameterized type refers to an object that is not of that parameterized type. 
+This situation can only occur if the program performed some operation that would give rise to an unchecked warning at compile-time. 
+An unchecked warning is generated if, either at compile-time (within the limits of the compile-time type checking rules) or at runtime, 
+the correctness of an operation involving a parameterized type (for example, a cast or method call) cannot be verified.
+
+#### Variable Arguments Methods and Non-Reifiable Formal Parameters
+
+The Java SE 7 compiler generates the following warning for the definition of the method which contains varargs:
+
+warning: [varargs] Possible heap pollution from parameterized vararg type T
+When the compiler encounters a varargs method, it translates the varargs formal parameter into an array. 
+However, the Java programming language does not permit the creation of arrays of parameterized types. 
+In the method ArrayBuilder.addToList, the compiler translates the varargs formal parameter T... elements to the formal parameter T[] elements, an array. 
+However, because of type erasure, the compiler converts the varargs formal parameter to Object[] elements. 
+Consequently, there is a possibility of heap pollution. 
+
+If you declare a varargs method that has parameterized parameters, 
+and you ensure that the body of the method does not throw a ClassCastException or other similar exception due to improper handling of the varargs formal parameter, 
+you can suppress the warning that the compiler generates for these kinds of varargs methods by using one of the following options:
+
+Add the following annotation to static and non-constructor method declarations:
+
+* @SafeVarargs
+* @SuppressWarnings({"unchecked", "varargs"})
+  * Unlike the @SafeVarargs annotation, the @SuppressWarnings("varargs") does not suppress warnings generated from the method's call site.
+* Use the compiler option -Xlint:varargs.

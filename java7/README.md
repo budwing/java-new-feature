@@ -1,5 +1,20 @@
 ## Java 7 new features
-
+<!-- TOC -->
+  * [Java 7 new features](#java-7-new-features)
+    * [Binary Literal](#binary-literal)
+    * [Underscores in Numeric Literals](#underscores-in-numeric-literals)
+    * [Strings in switch Statements](#strings-in-switch-statements)
+    * [Type Inference for Generic Instance Creation](#type-inference-for-generic-instance-creation)
+      * [Type Inference and Generic Constructors of Generic and Non-Generic Classes](#type-inference-and-generic-constructors-of-generic-and-non-generic-classes)
+    * [The try-with-resources Statement](#the-try-with-resources-statement)
+      * [Suppressed Exceptions](#suppressed-exceptions)
+      * [Classes That Implement the AutoCloseable or Closeable Interface](#classes-that-implement-the-autocloseable-or-closeable-interface)
+    * [Handling More Than One Type of Exception](#handling-more-than-one-type-of-exception)
+    * [Rethrowing Exceptions with More Inclusive Type Checking](#rethrowing-exceptions-with-more-inclusive-type-checking)
+    * [Improved Compiler Warnings and Errors for Non-Reifiable](#improved-compiler-warnings-and-errors-for-non-reifiable)
+      * [Heap Pollution](#heap-pollution)
+      * [Variable Arguments Methods and Non-Reifiable Formal Parameters](#variable-arguments-methods-and-non-reifiable-formal-parameters)
+<!-- TOC -->
 ### Binary Literal
 In Java SE 7, the **_integral types (byte, short, int, and long)_** can also be expressed using the binary number system. 
 To specify a binary literal, **_add the prefix 0b or 0B to the number_**. The following examples show binary literals:

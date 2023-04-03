@@ -50,10 +50,12 @@ public class PublisherTests {
         double pay1 = publisher.totalPayment(books, (book,price)->book.calculateRoyalty(price));
         double pay2 = publisher.totalPayment(books, Book::calculateRoyalty);
         log.info("Lambda result:{}, Instance method reference result:{}", pay1, pay2);
+        Assert.assertEquals(pay1, pay2);
     }
     @Test
     public void testContructor() {
-        List<String> booknames = publisher.getPublishedBooksName(books, ArrayList::new);
-        log.info("book names: {}",booknames);
+        List<String> booknames1 = publisher.getPublishedBooksName(books, ()->new ArrayList<>());
+        List<String> booknames2 = publisher.getPublishedBooksName(books, ArrayList::new);
+        log.info("Lambda result:{}, Constructor method reference result:{}", booknames1, booknames2);
     }
 }

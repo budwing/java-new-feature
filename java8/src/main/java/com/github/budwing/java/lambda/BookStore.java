@@ -1,9 +1,8 @@
-package com.github.budwing.java;
+package com.github.budwing.java.lambda;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.*;
-import java.util.stream.Collectors;
 
 public class BookStore {
     private List<Book> books;

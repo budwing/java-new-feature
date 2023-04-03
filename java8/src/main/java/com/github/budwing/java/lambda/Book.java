@@ -1,4 +1,4 @@
-package com.github.budwing.java;
+package com.github.budwing.java.lambda;
 
 import java.time.LocalDate;
 
@@ -27,6 +27,15 @@ public class Book {
 
     public LocalDate getPublishDate() {
         return publishDate;
+    }
+
+    public double calculateRoyalty(double price) {
+        double payment = getTotalPages()*price;
+        if (getTotalPages()>300) {
+            payment += (getTotalPages()-300)*price*0.1;
+        }
+
+        return payment;
     }
 
     @Override

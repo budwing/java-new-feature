@@ -1,5 +1,8 @@
 package com.github.budwing.java;
 
+import com.github.budwing.java.lambda.Book;
+import com.github.budwing.java.lambda.BookFilter;
+import com.github.budwing.java.lambda.BookStore;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

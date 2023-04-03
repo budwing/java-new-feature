@@ -15,7 +15,7 @@ public class Permutation<E> {
 	}
 
 	public Permutation() {
-		processor = new PrintProcessor();
+		processor = new PrintProcessor(false);
 	}
 
 	public Permutation(PermutationProcessor p) {

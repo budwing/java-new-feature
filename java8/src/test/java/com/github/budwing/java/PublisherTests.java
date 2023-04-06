@@ -1,7 +1,8 @@
 package com.github.budwing.java;
 
+import com.github.budwing.java.defaultmethod.Bird;
 import com.github.budwing.java.lambda.Book;
-import com.github.budwing.java.method.reference.Publisher;
+import com.github.budwing.java.methodreference.Publisher;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;

@@ -1,4 +1,4 @@
-package com.github.budwing.java.method.reference;
+package com.github.budwing.java.methodreference;
 
 import com.github.budwing.java.lambda.Book;
 

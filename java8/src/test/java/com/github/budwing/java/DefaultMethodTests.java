@@ -4,7 +4,6 @@ import com.github.budwing.java.defaultmethod.Bird;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;

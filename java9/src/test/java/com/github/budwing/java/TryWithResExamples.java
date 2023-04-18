@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
  *
  * If you already have a resource as a final or effectively final variable, you can use that variable in a try-with-resources statement without declaring a new variable.
  */
-public class ExamplesForTWR {
+public class TryWithResExamples {
     @Test
     public void exampleForEnhanced() {
         BufferedReader br = new BufferedReader(new InputStreamReader(this.getClass().getClassLoader().getResourceAsStream("logback.xml")));

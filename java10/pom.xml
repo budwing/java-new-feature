@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>java-new-feature</artifactId>
+        <groupId>com.github.budwing.java</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>java10</artifactId>
+
+    <properties>
+        <maven.compiler.release>10</maven.compiler.release>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.github.budwing.java.AutomaticMod</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+                <version>3.3.0</version>
+            </plugin>
+            <plugin>
+                <groupId>org.moditect</groupId>
+                <artifactId>moditect-maven-plugin</artifactId>
+                <version>1.0.0.RC3</version>
+                <executions>
+                    <execution>
+                        <id>generate-module-info</id>
+                        <phase>generate-resources</phase>
+                        <goals>
+                            <goal>add-module-info</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <modules>
+                                <module>
+                                    <artifact>
+                                        <groupId>org.apache.commons</groupId>
+                                        <artifactId>commons-lang3</artifactId>
+                                        <version>3.12.0</version>
+                                    </artifact>
+                                    <moduleInfoSource>
+                                        module org.apache.commons.lang3 {
+                                        requires transitive java.desktop;
+
+                                        exports org.apache.commons.lang3;
+                                        exports org.apache.commons.lang3.arch;
+                                        exports org.apache.commons.lang3.builder;
+                                        exports org.apache.commons.lang3.compare;
+                                        exports org.apache.commons.lang3.concurrent;
+                                        exports org.apache.commons.lang3.concurrent.locks;
+                                        exports org.apache.commons.lang3.event;
+                                        exports org.apache.commons.lang3.exception;
+                                        exports org.apache.commons.lang3.function;
+                                        exports org.apache.commons.lang3.math;
+                                        exports org.apache.commons.lang3.mutable;
+                                        exports org.apache.commons.lang3.reflect;
+                                        exports org.apache.commons.lang3.stream;
+                                        exports org.apache.commons.lang3.text;
+                                        exports org.apache.commons.lang3.text.translate;
+                                        exports org.apache.commons.lang3.time;
+                                        exports org.apache.commons.lang3.tuple;
+                                        }
+                                    </moduleInfoSource>
+                                </module>
+                            </modules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

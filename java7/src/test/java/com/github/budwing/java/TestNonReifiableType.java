@@ -7,6 +7,7 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.Callable;
 
 @Slf4j
 public class TestNonReifiableType {
@@ -49,5 +50,19 @@ public class TestNonReifiableType {
                 NonReifiableType.faultyMethod(Arrays.asList("Hello!"), Arrays.asList("World!"));
             }
         });
+    }
+
+    /**
+     * Diamond operator can't be used with anonymous inner class
+     */
+    @Test
+    public void exampleDiamondWithInnerClass() throws Exception {
+        Callable<String> c = new Callable<String>() {
+            @Override
+            public String call() throws Exception {
+                return "it's just a test for diamond operator with anonymous inner class.";
+            }
+        };
+        log.info(c.call());
     }
 }

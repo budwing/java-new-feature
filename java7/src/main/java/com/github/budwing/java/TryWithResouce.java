@@ -87,9 +87,11 @@ public class TryWithResouce {
 
         String query = "select COF_NAME, SUP_ID, PRICE, SALES, TOTAL from COFFEES";
 
-        try (Statement stmt = con.createStatement()) {
+        Statement stmt = con.createStatement();
+        // you must redeclare it in Java 7
+        try (Statement stmt1 = stmt) {
 
-            ResultSet rs = stmt.executeQuery(query);
+            ResultSet rs = stmt1.executeQuery(query);
 
             while (rs.next()) {
                 String coffeeName = rs.getString("COF_NAME");

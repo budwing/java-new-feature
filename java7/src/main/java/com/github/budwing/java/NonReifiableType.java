@@ -16,7 +16,6 @@ public class NonReifiableType {
      * Because of type erasure, List<Number> and List<String> both become List.
      * Consequently, the compiler allows the assignment of the object l, which has a raw type of List, to the object ls.
      *
-
      */
     public static void heapPollutionClassCast() {
         List l = new ArrayList<Number>();
@@ -46,16 +45,20 @@ public class NonReifiableType {
     }
 
     /**
-     * The Java SE 7 compiler generates the following warning for the definition of the method ArrayBuilder.addToList:
+     * The Java SE 7 compiler generates the following warning for the definition of the method:
      * warning: [varargs] Possible heap pollution from parameterized vararg type T
      * Uses @SuppressWarnings({"unchecked", "varargs"}) or @SafeVarargs to suppress the warning
+     *
+     * Notes: @SafeVarargs can only annotate static & final instance method
+     *
      * @param listArg
      * @param elements
      * @param <T>
      */
     public static <T> void addToListUncheckedWarning(List<T> listArg, T... elements) {
-        for (T x : elements) {
-            listArg.add(x);
+        Object[] newElements = elements;
+        for (Object x : newElements) {
+            listArg.add((T) x);
         }
     }
 

@@ -12,8 +12,9 @@
         <module>java7</module>
         <module>java8</module>
         <module>java9</module>
-        <module>java11</module>
         <module>java10</module>
+        <module>java11</module>
+        <module>java17</module>
     </modules>
 
     <properties>

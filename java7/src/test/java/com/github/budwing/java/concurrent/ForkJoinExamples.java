@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.ForkJoinPool;
 
 @Slf4j
-public class TestConcurrent {
+public class ForkJoinExamples {
     @Test
     public void testCountTask() {
         ForkJoinPool pool = new ForkJoinPool();
@@ -29,14 +29,26 @@ public class TestConcurrent {
         log.info("result is {}, time: {}", sum, System.nanoTime()-start);
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //// try yourselves
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    /**
+     * try to list all the files under a directory by using Fork/Join framework
+     */
     @Test
+    public void transverseFiles() {
+
+    }
+
+    //@Test
     public void testPermuteWithSudoku() {
         Integer a[] = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         Permutation<Integer> p = new Permutation<Integer>(new SudokuPermutationProcessor());
         p.permute(a);
     }
 
-    @Test
+    //@Test
     public void testPermuteWithPrint() {
         /*Character[] words = {'0','1','2','3','4','5','6','7','8','9',
 				'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',

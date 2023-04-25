@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.nio.file.*;
 
 @Slf4j
-public class TestPath {
+public class PathExamples {
     @Test
-    public void testFileSystems() throws IOException {
+    public void exampleForFileSystems() throws IOException {
         FileSystem fs = FileSystems.getDefault();
         log.info("default file system: {}", fs);
         for (FileStore store : fs.getFileStores()) {
@@ -20,7 +20,7 @@ public class TestPath {
         }
     }
     @Test
-    public void testPaths() {
+    public void exampleForPaths() {
         FileSystem fs = FileSystems.getDefault();
         Path path = fs.getPath("a","b","c");
         log.info("FileSystem.getPath without root: {}", path);

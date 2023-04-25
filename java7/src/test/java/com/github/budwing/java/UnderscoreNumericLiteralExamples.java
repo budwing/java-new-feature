@@ -1,9 +1,10 @@
 package com.github.budwing.java;
 
 import lombok.extern.slf4j.Slf4j;
+import org.testng.annotations.Test;
 
 @Slf4j
-public class UnderscoreNumericLiteral {
+public class UnderscoreNumericLiteralExamples {
     /**
      * In Java SE 7 and later, any number of underscore characters (_) can appear anywhere between digits in a numerical literal.
      * This feature enables you, for example, to separate groups of digits in numeric literals, which can improve the readability of your code.
@@ -12,7 +13,8 @@ public class UnderscoreNumericLiteral {
      *
      * The following example shows other ways you can use the underscore in numeric literals:
      */
-    public static void legalUsage() {
+    @Test
+    public void legalUsage() {
         long creditCardNumber = 1234_5678_9012_3456L;
         log.info("Underscore in long '1234_5678_9012_3456L' --> {}", creditCardNumber);
         long socialSecurityNumber = 999_99_9999L;
@@ -41,7 +43,8 @@ public class UnderscoreNumericLiteral {
      *
      * The following examples demonstrate valid and invalid underscore placements (which are highlighted) in numeric literals
      */
-    public static void illegalUsage() {
+    @Test
+    public void illegalUsage() {
         // float pi1 = 3_.1415F;
         log.error("'float pi1 = 3_.1415F;' --> cannot put underscores adjacent to a decimal point");
         // float pi2 = 3._1415F;
@@ -66,5 +69,17 @@ public class UnderscoreNumericLiteral {
         int x9 = 0_52;             // OK (octal literal)
         int x10 = 05_2;            // OK (octal literal)
         log.info("'int x11 = 052_;' --> cannot put underscores at the end of a number");
+    }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //// try yourselves
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    /**
+     * underscore is still valid variable, but it will be phased out from java9
+     */
+    @Test
+    public void underscoreVariable() {
+        int _ = 100;
+        log.info("underscore is a legal variable name: {}", _);
     }
 }

@@ -9,9 +9,9 @@ import java.lang.invoke.MethodHandles;
 import java.lang.invoke.MethodType;
 
 @Slf4j
-public class TestInvokeDynamic {
+public class InvokeDynamicExamples {
     @Test
-    public void testStringReplace() {
+    public void stringReplaceInvokeDynamic() {
         Object receiver = "java new feature";
         try {
             MethodHandles.Lookup l = MethodHandles.lookup();
@@ -31,7 +31,7 @@ public class TestInvokeDynamic {
     }
 
     @Test
-    public void testConstCallSite() throws Throwable {
+    public void constCallSiteInvokeDynamic() throws Throwable {
         MethodType type = MethodType.methodType(String.class, int.class, int.class);
         MethodHandles.Lookup lookup = MethodHandles.lookup();
         MethodHandle handle = lookup.findVirtual(String.class, "substring", type);

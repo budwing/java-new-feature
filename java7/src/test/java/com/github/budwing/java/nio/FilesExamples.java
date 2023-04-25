@@ -9,14 +9,14 @@ import java.nio.file.*;
 import java.nio.file.attribute.BasicFileAttributes;
 
 @Slf4j
-public class TestFiles {
+public class FilesExamples {
     /**
      * native copy will be used. so it's faster than read/write by java io.
      *
      * @throws IOException
      */
     @Test
-    public void testCopy() throws IOException {
+    public void exampleForCopy() throws IOException {
         Path a = Paths.get("f:", "a.txt");
         Path b = Paths.get("f:", "b.txt");
         Files.write(a, "a test file".getBytes(), StandardOpenOption.CREATE);
@@ -31,7 +31,7 @@ public class TestFiles {
      * @throws IOException
      */
     @Test
-    public void testFileVisitor() throws IOException {
+    public void exampleForFileVisitor() throws IOException {
         Path root = Paths.get("c:", "Program Files");
         Files.walkFileTree(root, new SimpleFileVisitor<Path>() {
             @Override
@@ -55,7 +55,7 @@ public class TestFiles {
      * @throws IOException
      */
     @Test
-    public void testTempFile() throws IOException {
+    public void exampleForTempFile() throws IOException {
         Path path = Files.createFile(Paths.get("f:", "test"));
         log.info("create file: {}", path);
         Files.delete(path);

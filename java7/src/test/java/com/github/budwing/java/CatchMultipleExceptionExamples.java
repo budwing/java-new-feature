@@ -1,9 +1,11 @@
 package com.github.budwing.java;
 
 import lombok.extern.slf4j.Slf4j;
+import org.testng.annotations.Test;
 
 @Slf4j
-public class CatchMultipleException {
+public class CatchMultipleExceptionExamples {
+    String exceptionName = "First";
     static class FirstException extends Exception {
     }
 
@@ -15,9 +17,10 @@ public class CatchMultipleException {
      * This feature can reduce code duplication and lessen the temptation to catch an overly broad exception.
      * Note: If a catch block handles more than one exception type, then the catch parameter is implicitly final.
      * In this example, the catch parameter ex is final and therefore you cannot assign any values to it within the catch block.
-     * @param exceptionName
      */
-    public static void catchMultiple(String exceptionName) {
+    @Test
+    public void catchMultiple() {
+
         try {
             if (exceptionName.equals("First")) {
                 throw new FirstException();
@@ -38,11 +41,11 @@ public class CatchMultipleException {
      * Even though the exception parameter of the catch clause, e, is type Exception,
      * the compiler can determine that it is an instance of either FirstException or SecondException:
      *
-     * @param exceptionName
      * @throws FirstException
      * @throws SecondException
      */
-    public static void rethrowException(String exceptionName) throws FirstException, SecondException {
+    @Test
+    public void rethrowException() throws FirstException, SecondException {
         try {
             if (exceptionName.equals("First")) {
                 throw new FirstException();

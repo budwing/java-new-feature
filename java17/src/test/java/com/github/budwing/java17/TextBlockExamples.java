@@ -36,7 +36,8 @@ public class TextBlockExamples {
     @Test
     public void htmlTextBlock() {
         log.info("Using \"one-dimensional\" string literals");
-        String oneDimensional = "<html>\n" +
+        String oneDimensional =
+                "<html>\n" +
                 "    <body>\n" +
                 "        <p>Hello, world</p>\n" +
                 "    </body>\n" +
@@ -60,7 +61,8 @@ public class TextBlockExamples {
     @Test
     public void sqlTextBlock() {
         log.info("Using \"one-dimensional\" string literals");
-        String oneDimensional = "SELECT \"EMP_ID\", \"LAST_NAME\" FROM \"EMPLOYEE_TB\"\n" +
+        String oneDimensional =
+                "SELECT \"EMP_ID\", \"LAST_NAME\" FROM \"EMPLOYEE_TB\"\n" +
                 "WHERE \"CITY\" = 'INDIANAPOLIS'\n" +
                 "ORDER BY \"EMP_ID\", \"LAST_NAME\";\n";
         System.out.println(oneDimensional);

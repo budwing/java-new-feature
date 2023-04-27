@@ -24,7 +24,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.github.budwing.java.SimpleModule</mainClass>
+                            <mainClass>com.github.budwing.java9.SimpleModule</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

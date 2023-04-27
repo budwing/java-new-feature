@@ -1,4 +1,4 @@
-package com.github.budwing.java;
+package com.github.budwing.java17;
 
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;

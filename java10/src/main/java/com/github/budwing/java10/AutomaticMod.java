@@ -1,4 +1,4 @@
-package com.github.budwing.java;
+package com.github.budwing.java10;
 
 import org.apache.commons.lang3.StringUtils;
 

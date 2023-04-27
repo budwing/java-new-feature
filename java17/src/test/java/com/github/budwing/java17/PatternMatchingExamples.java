@@ -1,10 +1,9 @@
-package com.github.budwing.java;
+package com.github.budwing.java17;
 
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 
 import java.io.IOException;
-import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.text.ParseException;
 

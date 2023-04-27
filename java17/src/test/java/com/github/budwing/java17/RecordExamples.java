@@ -1,4 +1,4 @@
-package com.github.budwing.java;
+package com.github.budwing.java17;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;

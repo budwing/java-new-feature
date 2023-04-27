@@ -1,11 +1,16 @@
 package com.github.budwing.java17;
 
+import com.github.budwing.java17.record.Circle;
+import com.github.budwing.java17.record.Rectangle;
+import com.github.budwing.java17.record.Triangle;
+import lombok.extern.slf4j.Slf4j;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
  * Record Class was introduced in Java 14 and permanent in Java 16
  */
+@Slf4j
 public class RecordExamples {
     /**
      * A record class declares the following members automatically:
@@ -15,12 +20,11 @@ public class RecordExamples {
      * -- An implementation of the toString method that includes the string representation of all the record class's components, with their names.
      */
     @Test
-    public void testRectangle() {
-        Rectangle rectangle1 = new Rectangle(12,13);
-        System.out.println(rectangle1);
-        System.out.printf("width is %.2f, height is %.2f.\n", rectangle1.width(), rectangle1.height());
+    public void rectangle() {
+        Rectangle rectangle1 = new Rectangle(12, 13);
+        log.info("width is {}, height is {}.", rectangle1.width(), rectangle1.height());
         Rectangle rectangle2 = new Rectangle(12, 13);
-
+        log.info("Rectangle2: {}", rectangle2);
         Assert.assertEquals(rectangle2, rectangle1);
     }
 
@@ -28,19 +32,27 @@ public class RecordExamples {
      * Record with explicit declaration of constructor.
      */
     @Test
-    public void testTriangle() {
-        Assert.expectThrows(IllegalStateException.class, ()-> {
-            System.out.println("This will throw an exception because the customized constructor defines the logic.");
-            new Triangle(1,2,9);
+    public void triangle() {
+        Assert.expectThrows(IllegalStateException.class, () -> {
+            log.info("This will throw an exception because the customized constructor defines the logic.");
+            new Triangle(1, 2, 9);
         });
     }
+
     /**
      * Record can implement interfaces and have its own static members
-     *
      */
     @Test
-    public void testCircle() {
+    public void circle() {
         Circle c = new Circle(2);
-        System.out.printf("The area: %.2f, the perimeter: %.2f.\n", c.area(),c.perimeter());
+        log.info("The area: {}, the perimeter: {}", String.format("%.2f", c.area()), c.perimeter());
+    }
+
+    /**
+     * TODO: make Shape a sealed Record
+     */
+    @Test
+    public void sealedShape() {
+        Assert.fail("make Shape a sealed Record");
     }
 }

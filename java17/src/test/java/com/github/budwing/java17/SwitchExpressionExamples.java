@@ -3,6 +3,8 @@ package com.github.budwing.java17;
 import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.Test;
 
+import java.time.DayOfWeek;
+
 /**
  * Switch expression was introduced in Java 12 and permanent in Java 14.
  */
@@ -13,7 +15,7 @@ public class SwitchExpressionExamples {
      */
     @Test
     public void exampleForSwitchStatement() {
-        switch (Day.SUNDAY) {
+        switch (DayOfWeek.SUNDAY) {
             case MONDAY:
                 System.out.println("The beginning of working days.");
                 break;
@@ -43,7 +45,7 @@ public class SwitchExpressionExamples {
     public void exampleForSwitchExpr() {
         // "case label ->" used as expression
         System.out.println(
-                switch (Day.FRIDAY) {
+                switch (DayOfWeek.FRIDAY) {
                     case MONDAY -> "The beginning of working days.";
                     case TUESDAY, WEDNESDAY, THURSDAY -> "Boring working days.";
                     case FRIDAY -> "The end of working days.";
@@ -53,7 +55,7 @@ public class SwitchExpressionExamples {
         );
         // "case label ->" used as statement
         // differences compared with switch statement is that there's no fall through
-        switch (Day.WEDNESDAY) {
+        switch (DayOfWeek.WEDNESDAY) {
             case MONDAY -> System.out.println("The beginning of working days.");
             case TUESDAY,WEDNESDAY,THURSDAY->System.out.println("Boring working days.");
             case FRIDAY->System.out.println("The end of working days.");
@@ -70,7 +72,7 @@ public class SwitchExpressionExamples {
      */
     @Test
     public void exampleForSwitchExprWithVariable() {
-        String msg = switch (Day.MONDAY) {
+        String msg = switch (DayOfWeek.MONDAY) {
             case MONDAY -> {
                 System.out.println("first branch");
                 yield  "The beginning of working days.";

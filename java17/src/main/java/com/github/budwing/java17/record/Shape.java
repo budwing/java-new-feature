@@ -1,4 +1,4 @@
-package com.github.budwing.java17;
+package com.github.budwing.java17.record;
 
 public interface Shape {
     double area();

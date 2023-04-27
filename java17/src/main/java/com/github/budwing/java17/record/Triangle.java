@@ -1,4 +1,4 @@
-package com.github.budwing.java17;
+package com.github.budwing.java17.record;
 
 /**
  * Triangle record with explicit constructor

@@ -1,4 +1,4 @@
-package com.github.budwing.java17;
+package com.github.budwing.java17.record;
 
 /**
  * Record can have static fields, static initializers, and static methods.
